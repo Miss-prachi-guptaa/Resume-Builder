@@ -1,0 +1,103 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: #f9ece9;
+}
+
+.resume {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  width: 900px;
+  margin: 20px auto;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar {
+  background: #7b4b42;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.profile-pic img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 5px solid white;
+  margin-bottom: 15px;
+}
+
+.name {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.designation {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.sidebar h3 {
+  background: #3b2c29;
+  padding: 8px;
+  margin: 20px 0 10px;
+  font-size: 16px;
+  text-align: left;
+}
+
+.sidebar p,
+.sidebar li {
+  font-size: 13px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 8px;
+}
+
+.sidebar ul li span {
+  margin-right: 6px;
+  color: #fff;
+}
+
+.main {
+  padding: 30px;
+  background: #fff;
+}
+
+.main h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  border-left: 6px solid #7b4b42;
+  padding-left: 10px;
+  color: #7b4b42;
+}
+
+.edu-item,
+.exp-item {
+  margin-bottom: 20px;
+}
+
+.year {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  color: #444;
+}
+
+.company {
+  font-size: 14px;
+  color: #555;
+}
+
+ul {
+  margin: 5px 0 0 20px;
+  font-size: 14px;
+}

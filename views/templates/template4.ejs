@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Resume Template 4</title>
+  <link rel="stylesheet" href="/templates/template<%= templateId %>.css">
+</head>
+
+<body>
+
+  <form id="resumeForm" action="/generate-pdf/<%= templateId %>" method="POST">
+    <button class="generate-pdf-btn" type="submit">Generate PDF</button>
+    <div class="resume">
+      <!-- LEFT COLUMN -->
+      <div class="left">
+        <div class="profile-pic">
+          <img src="/profile.jpg" alt="Profile">
+        </div>
+        <h1 class="name">MAANVITA KUMARI</h1>
+        <p class="title">Graphic Designer</p>
+
+        <div class="contact">
+          <p>📞 +123-456-7890</p>
+          <p>📍 123 Anywhere St, Any City</p>
+          <p>🌐 www.reallygreatsite.com</p>
+          <p>✉️ hello@reallygreatsite.com</p>
+        </div>
+
+        <section>
+          <h2>ABOUT ME</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore
+            magna aliqua.
+          </p>
+        </section>
+
+        <section>
+          <h2>EDUCATION</h2>
+          <p><strong>BORCELLE UNIVERSITY</strong><br>2024 – 2027</p>
+          <p><strong>BORCELLE UNIVERSITY</strong><br>2021 – 2024</p>
+          <p><strong>BORCELLE UNIVERSITY</strong><br>2018 – 2021</p>
+        </section>
+
+        <section>
+          <h2>SKILLS</h2>
+          <p>Visual Imagination – Lorem Design Software</p>
+          <p>Typography – Communication</p>
+        </section>
+
+        <section>
+          <h2>LANGUAGES</h2>
+          <p>Hindi</p>
+          <p>English</p>
+        </section>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="right">
+        <section>
+          <h2>WORK EXPERIENCE</h2>
+          <div class="job">
+            <h3>ALDENAIRE & PARTNERS – GRAPHIC DESIGNER <span>2024–NOW</span></h3>
+            <p>Graphic Designer</p>
+            <ul>
+              <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+              <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <h3>THYNK UNLIMITED – GRAPHIC DESIGNER <span>2019–2023</span></h3>
+            <p>Graphic Designer</p>
+            <ul>
+              <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+              <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <h3>WARDIERE INC – GRAPHIC DESIGNER <span>2018–2019</span></h3>
+            <p>Graphic Designer</p>
+            <ul>
+              <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+              <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2>ACHIEVEMENT</h2>
+          <p><strong>BORCELLE AWARD</strong></p>
+          <p>Best Graphic Designer – 2020</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </section>
+
+        <section>
+          <h2>REFERENCE</h2>
+          <p><strong>Alexander Aronowitz</strong><br>Borcelle University<br>📞 +123-456-7890</p>
+          <p><strong>Mariana Napolitan</strong><br>Borcelle University<br>📞 +123-456-7890</p>
+        </section>
+      </div>
+    </div>
+</body>
+
+</html>

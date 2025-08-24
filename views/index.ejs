@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Builder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<style>
+  /* General Reset */
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+    background: #f9f9f9;
+  }
+
+  /* Navbar */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 40px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+
+  /* Navbar Container */
+  .nav-left {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    /* space between logo and nav links */
+  }
+
+  /* Logo */
+  .logo {
+    font-size: 22px;
+    font-weight: 700;
+    color: #00bfa6;
+    text-decoration: none;
+  }
+
+  /* Nav Links */
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 24px;
+    /* spacing between links */
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-links li a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    transition: color 0.2s ease-in-out;
+  }
+
+  .nav-links li a:hover {
+    color: #00bfa6;
+    /* hover color matches logo */
+  }
+
+
+  .nav-right {
+    display: flex;
+    gap: 12px;
+  }
+
+  /* Buttons */
+  .btn {
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .btn.big {
+    padding: 12px 22px;
+    font-size: 16px;
+  }
+
+  .btn.primary {
+    background: #00bfa6;
+    color: #fff;
+  }
+
+  .btn.primary:hover {
+    background: #009e8c;
+  }
+
+  .btn.secondary {
+    border: 1px solid #00bfa6;
+    color: #00bfa6;
+    background: #fff;
+  }
+
+  .btn.secondary:hover {
+    background: #e6fdf9;
+  }
+
+  .btn.danger {
+    border: 1px solid #ff4d4d;
+    color: #fff;
+    background: #ff4d4d;
+  }
+
+  .btn.danger:hover {
+    background: #e63939;
+  }
+
+  /* Logged-in Message */
+  .login-message {
+    background: #e6ffe6;
+    color: #2e7d32;
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #c8e6c9;
+  }
+
+  /* Hero Section */
+  .hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 40px;
+    background: linear-gradient(to right, #f0fdfd, #e6faff);
+  }
+
+  .hero-text {
+    max-width: 50%;
+  }
+
+  .hero-text h1 {
+    font-size: 36px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .hero-text h1 span {
+    color: #00bfa6;
+  }
+
+  .hero-text p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #555;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 15px;
+  }
+
+  .hero-image img {
+    max-width: 420px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+</style>
+
+<body>
+
+  <!-- Navbar -->
+  <%- include("partials/headers") %>
+
+    <!-- Logged-in message -->
+    <% if (user) { %>
+      <div class="login-message">
+        ✅ You are logged in as <strong>
+          <%= user.name %>
+        </strong>
+      </div>
+      <% } %>
+
+        <!-- Hero Section -->
+        <section class="hero">
+          <div class="hero-text">
+            <h1>Create a <span>Professional Resume</span> in Minutes</h1>
+            <p>Choose from expert-designed templates, customize sections, and download your resume instantly to boost
+              your
+              career.</p>
+            <div class="hero-buttons">
+              <a href="/buildResume" class="btn primary big">Build Your Resume</a>
+              <% if (user) { %>
+                <a href="/documents" class="btn secondary big">My Documents</a>
+
+                <% } %>
+            </div>
+          </div>
+          <div class="hero-image">
+            <img src="]image_preview.jpg" alt="Resume Preview" />
+          </div>
+        </section>
+
+</body>
+
+</html>

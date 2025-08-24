@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Resume - Template 3</title>
+  <link rel="stylesheet" href="/templates/template<%= templateId %>.css">
+</head>
+
+<body>
+  <form id="resumeForm" action="/generate-pdf/3" method="POST">
+    <button class="generate-pdf-btn" type="submit">Generate PDF</button>
+
+    <div class="resume">
+
+      <!-- Header -->
+      <div class="resume-header">
+        <h1 contenteditable="true">Emma Ahearn</h1>
+        <h2 contenteditable="true">CHEMIST</h2>
+      </div>
+
+      <!-- Professional Summary -->
+      <section class="summary">
+        <h3>PROFESSIONAL SUMMARY</h3>
+        <p contenteditable="true">
+          I am a chemistry graduate seeking to apply my extensive academic background and laboratory experience in an
+          organization with an innovative vision. I am looking forward to contributing to a dynamic team and supporting
+          research and development efforts.
+        </p>
+      </section>
+
+      <!-- Contact -->
+      <section class="contact">
+        <p><strong>Phone:</strong> <span contenteditable="true">+123-456-7890</span></p>
+        <p><strong>Email:</strong> <span contenteditable="true">hello@reallygreatsite.com</span></p>
+        <p><strong>Address:</strong> <span contenteditable="true">123 Anywhere St., Any City, ST 12345</span></p>
+      </section>
+
+      <!-- Education -->
+      <section>
+        <h3>EDUCATION</h3>
+        <p contenteditable="true"><strong>Bachelor of Science in Chemistry | 2026-2030</strong></p>
+        <p contenteditable="true"><em>East State University, Valley City</em></p>
+        <ul>
+          <li contenteditable="true">Relevant Coursework: Organic Chemistry, Inorganic Chemistry, Physical Chemistry,
+            Analytical Chemistry, Chemical Engineering Principles, Thermodynamics, Material Science</li>
+          <li contenteditable="true">GPA: 3.8</li>
+        </ul>
+      </section>
+
+      <!-- Research Experience -->
+      <section>
+        <h3>RESEARCH EXPERIENCE</h3>
+        <p contenteditable="true"><strong>Undergraduate Research Assistant | 2029-2030</strong></p>
+        <p contenteditable="true"><em>Chemistry Department of East State University</em></p>
+        <ul>
+          <li contenteditable="true">Collaborated with a research team to study synthesis of novel organic compounds
+          </li>
+          <li contenteditable="true">Conducted experiments using chromatography, spectroscopy, and analytical techniques
+          </li>
+          <li contenteditable="true">Analyzed and interpreted data, contributed to research paper submission</li>
+        </ul>
+      </section>
+
+      <!-- Projects -->
+      <section>
+        <h3>PROJECTS</h3>
+        <p contenteditable="true"><strong>Fabrication of a Miniature Chemical Reactor</strong></p>
+        <p contenteditable="true"><em>Chemical Engineering Course, Second Semester of 2028</em></p>
+        <ul>
+          <li contenteditable="true">Engineered small-scale chemical reactor with chemical engineering principles</li>
+          <li contenteditable="true">Conducted performance tests & optimization checks</li>
+          <li contenteditable="true">Presented findings and received recognition for innovation</li>
+        </ul>
+
+        <p contenteditable="true"><strong>The Green Thumb Chemist</strong></p>
+        <p contenteditable="true"><em>Chemistry Club, First Semester of 2029</em></p>
+        <ul>
+          <li contenteditable="true">Developed eco-friendly lab practices project</li>
+          <li contenteditable="true">Researched sustainable alternatives to hazardous chemicals</li>
+          <li contenteditable="true">Educated peers on green chemistry through workshops</li>
+        </ul>
+      </section>
+
+      <!-- Awards -->
+      <section>
+        <h3>NOTABLE AWARDS</h3>
+        <ul>
+          <li contenteditable="true">Dean’s List, East State University, 2026-2030</li>
+          <li contenteditable="true">Gold Award, Chemistry Olympiad, 2027</li>
+        </ul>
+      </section>
+
+    </div>
+
+    <input type="hidden" name="resumeHTML" id="resumeHTML">
+  </form>
+
+  <script>
+    const form = document.getElementById('resumeForm');
+    form.addEventListener('submit', function () {
+      const resumeDiv = document.querySelector('.resume');
+      document.getElementById('resumeHTML').value = resumeDiv.innerHTML;
+    });
+  </script>
+</body>
+
+</html>

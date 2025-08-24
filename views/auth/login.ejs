@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Resume Builder</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="logo">Resume<span>Builder</span></div>
+    <div class="nav-links">
+      <a href="/resume">Resume</a>
+      <a href="/cover-letter">Cover Letter</a>
+      <a href="/blog">Blog</a>
+      <a href="/pricing">Pricing</a>
+    </div>
+    <a href="/login" class="my-documents">My Documents</a>
+  </nav>
+
+  <section class="register-section">
+    <div class="register-container">
+      <h1>Login to Your Account</h1>
+      <p>Welcome back! Please enter your credentials to continue.</p>
+      <form action="/login" method="POST">
+        <label>Email</label>
+        <input type="email" name="email" required>
+
+        <label>Password</label>
+        <input type="password" name="password" required>
+
+        <button type="submit" class="btn-primary">Login</button>
+      </form>
+      <p class="login-link">Don’t have an account? <a href="/register">Register</a></p>
+    </div>
+  </section>
+</body>
+
+</html>

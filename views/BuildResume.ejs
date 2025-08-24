@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Resume Dashboard</title>
+  <link rel="stylesheet" href="/EJS.css" />
+
+
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">ResumeBuilder</div>
+    <div class="auth-buttons">
+      <button class="login">Login</button>
+      <button class="logout">Logout</button>
+    </div>
+  </nav>
+
+  <!-- Container -->
+  <div class="container">
+    <div class="header">
+      <h2>Welcome back, Prachi Gupta! You have <%= resumes.length %> document(s)</h2>
+      <button onclick="window.location.href='/CreateNew'">+ Create New</button>
+    </div>
+
+    <% if(resumes.length> 0) { %>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Tag</th>
+          <th>Document Type</th>
+          <th>Created</th>
+          <th>Last Modified</th>
+          <th>Actions</th>
+        </tr>
+
+        <% resumes.forEach(resume=> { %>
+          <tr>
+            <td>
+              <%= resume.name %>
+            </td>
+            <td>
+              <%= resume.tag || 'Add label' %>
+            </td>
+            <td>Resume</td>
+            <td>
+              <%= resume.created %>
+            </td>
+            <td>
+              <%= resume.modified %>
+            </td>
+            <td class="action-icons">
+              <a href="<%= resume.viewLink %>">View</a>
+              <a href="<%= resume.downloadLink %>">Download</a>
+              <a href="<%= resume.deleteLink %>">Delete</a>
+            </td>
+          </tr>
+          <% }) %>
+      </table>
+
+      <% } else { %>
+        <div class="empty">
+          No resumes found. Click "Create Builder" to build your first resume!
+        </div>
+        <% } %>
+
+  </div>
+
+</body>
+
+</html>

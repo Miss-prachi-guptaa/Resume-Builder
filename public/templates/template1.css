@@ -1,0 +1,73 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f9fc;
+  margin: 0;
+  padding: 0;
+}
+
+.resume {
+  max-width: 850px;
+  margin: 30px auto;
+  background: #fff;
+  padding: 40px;
+  border-radius: 8px;
+  border-left: 10px solid #0077cc;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  font-size: 36px;
+  color: #0077cc;
+  margin-bottom: 5px;
+}
+
+.header h2 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.header p {
+  font-size: 14px;
+  color: #555;
+}
+
+section {
+  margin-top: 25px;
+}
+
+section h3 {
+  font-size: 18px;
+  color: #0077cc;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+
+.job,
+.edu {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.job-left,
+.edu-left {
+  width: 30%;
+  font-weight: bold;
+  color: #444;
+}
+
+.job-right,
+.edu-right {
+  width: 70%;
+}
+
+.generate-pdf-btn {
+  background: #0077cc;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  margin-bottom: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}

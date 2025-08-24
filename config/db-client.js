@@ -1,0 +1,11 @@
+import mongoose from "mongoose";
+
+import { env } from "./env.js";
+
+export const ConnectDB = async () => {
+  try {
+    await mongoose.connect(env.MONGODB_URI);
+  } catch (error) {
+    console.error(error);
+  }
+}

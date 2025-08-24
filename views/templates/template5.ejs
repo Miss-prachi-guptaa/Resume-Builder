@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title contenteditable="true">
+    <%= user.name %> - Resume
+  </title>
+  <link rel="stylesheet" href="/templates/template<%= templateId %>.css">
+</head>
+
+<body>
+
+  <form id="resumeForm" action="/generate-pdf/<%= templateId %>" method="POST">
+    <button class="generate-pdf-btn" type="submit">Generate PDF</button>
+    <div class="resume-container">
+
+      <!-- Header -->
+      <header>
+        <h1 contenteditable="true">
+          <%= user.name %>
+        </h1>
+        <p contenteditable="true">
+          <%= user.city %> | <%= user.email %> | <%= user.phone %> | <%= user.website %>
+        </p>
+      </header>
+
+      <!-- Summary -->
+      <section class="summary">
+        <h2>SUMMARY</h2>
+        <p contenteditable="true">
+          <%= user.summary %>
+        </p>
+      </section>
+
+      <!-- Work Experience -->
+      <section class="work-experience">
+        <h2>WORK EXPERIENCE</h2>
+        <% user.experience.forEach(exp=> { %>
+          <div class="job">
+            <div class="job-header" contenteditable="true">
+              <strong>
+                <%= exp.role %>
+              </strong> – <%= exp.company %>
+                <span class="date">
+                  <%= exp.duration %>
+                </span>
+            </div>
+            <ul>
+              <% exp.points.forEach(p=> { %>
+                <li contenteditable="true">
+                  <%= p %>
+                </li>
+                <% }) %>
+            </ul>
+          </div>
+          <% }) %>
+      </section>
+
+      <!-- Education -->
+      <section class="education">
+        <h2>EDUCATION</h2>
+        <div>
+          <strong contenteditable="true">
+            <%= user.education.degree %>
+          </strong> –
+          <span contenteditable="true">
+            <%= user.education.university %>
+          </span>
+          <span class="date" contenteditable="true">
+            <%= user.education.duration %>
+          </span>
+          <p contenteditable="true">
+            GPA: <%= user.education.gpa %>, Relevant Courses: <%= user.education.courses %>
+          </p>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section class="skills">
+        <h2>SKILLS</h2>
+        <table>
+          <tr>
+            <td><strong>Languages</strong></td>
+            <td contenteditable="true">
+              <%= user.skills.languages %>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Tools/Frameworks</strong></td>
+            <td contenteditable="true">
+              <%= user.skills.frameworks %>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Databases</strong></td>
+            <td contenteditable="true">
+              <%= user.skills.databases %>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Other Skills</strong></td>
+            <td contenteditable="true">
+              <%= user.skills.others %>
+            </td>
+          </tr>
+        </table>
+      </section>
+
+      <!-- Certificates -->
+      <section class="certificates">
+        <h2>CERTIFICATES</h2>
+        <% user.certificates.forEach(cert=> { %>
+          <p contenteditable="true">
+            <strong>
+              <%= cert.name %>
+            </strong> – <%= cert.date %><br>
+              <%= cert.details %>
+          </p>
+          <% }) %>
+      </section>
+
+    </div>
+</body>
+
+</html>

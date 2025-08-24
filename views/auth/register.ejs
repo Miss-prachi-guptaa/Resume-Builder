@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Register - Resume Builder</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="logo">Resume<span>Builder</span></div>
+    <div class="nav-links">
+      <a href="/resume">Resume</a>
+      <a href="/cover-letter">Cover Letter</a>
+      <a href="/blog">Blog</a>
+      <a href="/pricing">Pricing</a>
+    </div>
+    <a href="/login" class="my-documents">My Documents</a>
+  </nav>
+
+  <section class="register-section">
+    <div class="register-container">
+      <h1>Create Your Account</h1>
+      <p>Join us and start building your professional resume today.</p>
+      <form action="/register" method="POST">
+        <label>Full Name</label>
+        <input type="text" name="name" required>
+
+        <label>Email</label>
+        <input type="email" name="email" required>
+
+        <label>Password</label>
+        <input type="password" name="password" required>
+
+        <button type="submit" class="btn-primary">Register</button>
+      </form>
+      <p class="login-link">Already have an account? <a href="/login">Login</a></p>
+    </div>
+  </section>
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Editable Resume Template 2</title>
+  <link rel="stylesheet" href="/templates/template2.css">
+  <style>
+    /* Optional: to highlight editable areas */
+    [contenteditable="true"] {
+      border: 1px dashed #ccc;
+      padding: 2px;
+      min-height: 20px;
+    }
+
+    [contenteditable="true"]:focus {
+      outline: 2px solid #007bff;
+      background: #f0f8ff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <form id="resumeForm" action="/generate-pdf/<%= templateId %>" method="POST">
+    <button class="generate-pdf-btn" type="submit">Generate PDF</button>
+    <div class="resume">
+
+      <!-- Left Sidebar -->
+      <div class="sidebar">
+        <div class="profile-pic">
+          <img src="https://via.placeholder.com/150" alt="Profile Picture" />
+        </div>
+        <h1 class="name" contenteditable="true">John Doe</h1>
+        <h2 class="designation" contenteditable="true">Full Stack Developer</h2>
+
+        <section class="profile">
+          <h3>Profile</h3>
+          <p contenteditable="true">
+            Passionate developer with experience in building scalable web applications, REST APIs, and frontend design.
+            Strong problem-solving skills with hands-on expertise in MERN stack.
+          </p>
+        </section>
+
+        <section class="reference">
+          <h3>Reference</h3>
+          <p contenteditable="true">
+            <strong>Jane Smith</strong><br />
+            Project Manager, ABC Corp<br />
+            +91-9876543210
+          </p>
+          <p contenteditable="true">
+            <strong>Michael Lee</strong><br />
+            Senior Engineer, XYZ Ltd<br />
+            +91-9123456780
+          </p>
+        </section>
+
+        <section class="skills">
+          <h3>Skills</h3>
+          <ul>
+            <li contenteditable="true"><span>&#10003;</span> JavaScript</li>
+            <li contenteditable="true"><span>&#10003;</span> React.js</li>
+            <li contenteditable="true"><span>&#10003;</span> Node.js</li>
+            <li contenteditable="true"><span>&#10003;</span> MongoDB</li>
+            <li contenteditable="true"><span>&#10003;</span> Git & GitHub</li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- Right Content -->
+      <div class="main">
+        <section class="education">
+          <h3>Education</h3>
+          <div class="edu-item" contenteditable="true">
+            <span class="year">2020 – 2024</span>
+            <h4>B.Tech CSE - XYZ University</h4>
+            <ul>
+              <li>Specialization in Artificial Intelligence</li>
+              <li>Secured 8.7 CGPA</li>
+              <li>Member of Coding Club</li>
+            </ul>
+          </div>
+
+          <div class="edu-item" contenteditable="true">
+            <span class="year">2018 – 2020</span>
+            <h4>12th CBSE - ABC School</h4>
+            <ul>
+              <li>Achieved 92% marks</li>
+              <li>Participated in Science Olympiad</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="experience">
+          <h3>Work Experience</h3>
+          <div class="exp-item" contenteditable="true">
+            <h4>Frontend Developer Intern</h4>
+            <span class="company">GOAT Developers | 2023</span>
+            <ul>
+              <li>Developed responsive user interfaces using React.js</li>
+              <li>Worked with REST APIs and authentication flows</li>
+              <li>Collaborated with backend team to improve performance</li>
+            </ul>
+          </div>
+
+          <div class="exp-item" contenteditable="true">
+            <h4>Full Stack Developer Intern</h4>
+            <span class="company">HookUX | 2022</span>
+            <ul>
+              <li>Built secure authentication system with JWT & sessions</li>
+              <li>Implemented database models and queries in MongoDB</li>
+              <li>Deployed project on AWS cloud</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </div>
+</body>
+
+</html>

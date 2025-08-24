@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Choose Template</title>
+  <link rel="stylesheet" href="/EJS.css" />
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">ResumeBuilder</div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Contact Us</a>
+    </div>
+  </nav>
+
+  <div class="filter-section">
+    <h3>Choose your job role</h3>
+    <div class="filter-buttons">
+      <button onclick="filterTemplates('all')">All</button>
+      <button onclick="filterTemplates('frontend')">Frontend</button>
+      <button onclick="filterTemplates('backend')">Backend</button>
+      <button onclick="filterTemplates('fullstack')">Full Stack</button>
+      <button onclick="filterTemplates('design')">UI/UX Design</button>
+    </div>
+  </div>
+
+  <main>
+    <div class="templates-section">
+      <div class="templates-container">
+        <% templates.forEach(template=> { %>
+          <div class="template-card">
+            <img src="<%= template.image %>" alt="Template <%= template.id %>">
+            <button onclick="window.location.href='/edit/<%= template.id %>'">Choose Template</button>
+          </div>
+          <% }) %>
+      </div>
+    </div>
+
+  </main>
+</body>
+
+</html>

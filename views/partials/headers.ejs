@@ -1,0 +1,23 @@
+<!-- header.ejs -->
+<header>
+  <nav class="navbar">
+    <div class="nav-left">
+      <a href="/" class="logo">ResumeBuilder</a>
+      <ul class="nav-links">
+        <li><a href="#">Resume</a></li>
+        <li><a href="#">Cover Letter</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Pricing</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-right">
+      <% if (!user) { %>
+        <a href="/login">Login</a>
+        <a href="/register">Register</a>
+        <% } else { %>
+          <a href="/logout">Logout</a>
+          <% } %>
+    </div>
+  </nav>
+</header>

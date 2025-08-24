@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Edit Resume</title>
+  <!-- Dynamically load CSS based on templateId -->
+  <link rel="stylesheet" href="/templates/template<%= templateId %>.css">
+</head>
+
+<body>
+  <form id="resumeForm" action="/generate-pdf/<%= templateId %>" method="POST">
+    <button class="generate-pdf-btn" type="submit">Generate PDF</button>
+
+    <div class="resume">
+      <div class="header">
+        <h1 contenteditable="true">Olivia Schumacher</h1>
+        <h2 contenteditable="true">Marketing Manager</h2>
+        <p contenteditable="true">+123-456-7890 · hello@reallygreatsite.com · @reallygreatsite <br> 123 Anywhere St.,
+          Any
+          City, ST 12345</p>
+      </div>
+
+      <hr>
+
+      <section class="work-experience">
+        <h3>WORK EXPERIENCE</h3>
+
+        <div class="job">
+          <div class="job-left" contenteditable="true">
+            Liceria & Co. <br>
+            2020 - 2023
+          </div>
+          <div class="job-right">
+            <strong contenteditable="true">Product Design Manager</strong>
+            <p contenteditable="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet sem nec
+              risus
+              egestas accumsan. In enim nunc, tincidunt ut quam eget, luctus sollicitudin neque.</p>
+          </div>
+        </div>
+
+        <div class="job">
+          <div class="job-left" contenteditable="true">
+            Liceria & Co. <br>
+            2019 - 2020
+          </div>
+          <div class="job-right">
+            <strong contenteditable="true">Marketing Manager</strong>
+            <p contenteditable="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet sem nec
+              risus
+              egestas accumsan. In enim nunc, tincidunt ut quam eget, luctus sollicitudin neque.</p>
+          </div>
+        </div>
+
+        <div class="job">
+          <div class="job-left" contenteditable="true">
+            Liceria & Co. <br>
+            2017 - 2019
+          </div>
+          <div class="job-right">
+            <strong contenteditable="true">Marketing Manager</strong>
+            <p contenteditable="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet sem nec
+              risus
+              egestas accumsan. In enim nunc, tincidunt ut quam eget, luctus sollicitudin neque.</p>
+          </div>
+        </div>
+
+      </section>
+
+      <hr>
+
+      <section class="education">
+        <h3>EDUCATION</h3>
+
+        <div class="edu">
+          <div class="edu-left" contenteditable="true">
+            Wardiere University <br>
+            2011 - 2015
+          </div>
+          <div class="edu-right">
+            <strong contenteditable="true">Master of Business Administration Accounting</strong>
+            <p contenteditable="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet sem nec
+              risus
+              egestas accumsan. In enim nunc, tincidunt ut quam eget.</p>
+          </div>
+        </div>
+
+        <div class="edu">
+          <div class="edu-left" contenteditable="true">
+            Borcelle University <br>
+            2011 - 2015
+          </div>
+          <div class="edu-right">
+            <strong contenteditable="true">BA Sales and Commerce</strong>
+            <p contenteditable="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet sem nec
+              risus
+              egestas accumsan. In enim nunc, tincidunt ut quam eget.</p>
+          </div>
+        </div>
+      </section>
+
+      <hr>
+
+      <section class="skills-language-references">
+        <div class="skills">
+          <h3>SKILLS</h3>
+          <p contenteditable="true">Management Skills <br> Creativity <br> Digital Marketing</p>
+        </div>
+
+        <div class="language">
+          <h3>LANGUAGE</h3>
+          <p contenteditable="true">English <br> French <br> Spanish</p>
+        </div>
+
+        <div class="references">
+          <h3>REFERENCES</h3>
+          <p contenteditable="true">
+            Harumi Kobayashi <br>
+            Wardiere Inc. / CEO <br>
+            <strong>Phone:</strong> 123-456-7890 <br>
+            <strong>Email:</strong> hello@reallygreatsite.com
+          </p>
+        </div>
+      </section>
+
+    </div>
+
+    <input type="hidden" name="resumeHTML" id="resumeHTML">
+  </form>
+
+  <script>
+    const form = document.getElementById('resumeForm');
+    form.addEventListener('submit', function (e) {
+      const resumeDiv = document.querySelector('.resume');
+      const resumeHTMLInput = document.getElementById('resumeHTML');
+      resumeHTMLInput.value = resumeDiv.innerHTML;
+    });
+  </script>
+</body>
+
+</html>

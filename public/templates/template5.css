@@ -1,0 +1,84 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  color: #222;
+}
+
+.resume-container {
+  width: 70%;
+  margin: 30px auto;
+  padding: 20px;
+  background: #fff;
+}
+
+header {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-size: 28px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+header p {
+  font-size: 14px;
+  color: #444;
+}
+
+section {
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 16px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.job {
+  margin-bottom: 15px;
+}
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.job ul {
+  margin: 5px 0 0 20px;
+  padding: 0;
+}
+
+.job li {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.education p {
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.skills table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.skills td {
+  padding: 5px 10px;
+  vertical-align: top;
+}
+
+.certificates p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
