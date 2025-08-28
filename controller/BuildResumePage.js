@@ -1,3 +1,4 @@
+import ResumeSave from "../schema/resume.js";
 
 
 export const getHomePage = (req, res) => {
@@ -16,14 +17,22 @@ export const getHomePage = (req, res) => {
 
 }
 // 2nd page button build resume route
-export const BuildResumePage = (req, res) => {
-  if (!req.user) return res.redirect("/login");
-  const resumes = [
-    { name: "Sample Resume", tag: "Web Dev", created: "July 18", modified: "July 19", viewLink: "#", downloadLink: "#", deleteLink: "#" }
-  ];
 
-  res.render("BuildResume", { resumes });
-}
+
+export const BuildResumePage = async (req, res) => {
+  if (!req.user) return res.redirect("/login");
+
+  try {
+    // Fetch resumes of logged-in user
+    const resumes = await ResumeSave.find({ userId: req.user.id }).lean();
+
+
+    res.render("BuildResume", { resumes });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error loading resumes");
+  }
+};
 
 //
 export const CreateNewPage = (req, res) => {

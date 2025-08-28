@@ -6,6 +6,7 @@ import { authRoute } from './routes/auth.route.js';
 import requestIp from 'request-ip';
 import cookieParser from 'cookie-parser';
 import { verifyAuthentication } from './middlewares/verify-auth-middleware.js';
+import methodOverride from "method-override";
 
 
 const app = express();
@@ -27,6 +28,9 @@ app.use((req, res, next) => {
 app.use(requestIp.mw());
 app.use(BuildResumePageRoute);// middleware to use router
 app.use(authRoute);
+
+app.use(methodOverride("_method"));
+
 
 try {
   await ConnectDB();

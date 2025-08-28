@@ -38,58 +38,68 @@
       color: white;
     }
 
-    .container {
-      padding: 30px 50px;
-    }
-
-    .header {
+    /* Wrapper to align button right */
+    .create-btn {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
+      justify-content: flex-end;
+      /* push button to right */
+      margin: 20px;
     }
 
-    .header h2 {
-      margin: 0;
-    }
-
-    .header button {
-      background: #6c63ff;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
+    /* Style the button only */
+    .create-btn button {
+      background-color: #4CAF50;
+      /* Green */
+      color: #fff;
+      padding: 10px 18px;
+      font-size: 15px;
       font-weight: 600;
+      border: none;
+      border-radius: 6px;
       cursor: pointer;
+      transition: all 0.3s ease;
     }
 
+    /* Hover effect */
+    .create-btn button:hover {
+      background-color: #45a049;
+      transform: scale(1.05);
+    }
+
+    /* Active effect */
+    .create-btn button:active {
+      background-color: #3e8e41;
+      transform: scale(0.98);
+    }
+
+    /* Table styling */
     table {
       width: 100%;
       border-collapse: collapse;
-      background: white;
+      margin-top: 20px;
+      font-family: Arial, sans-serif;
     }
 
     th,
     td {
-      text-align: left;
-      padding: 12px;
-      border-bottom: 1px solid #ddd;
+      border: 1px solid #ddd;
+      padding: 10px 15px;
+      text-align: center;
     }
 
     th {
-      background: #f2f2f2;
+      background-color: #f4f4f4;
+      font-weight: bold;
     }
 
-    .action-icons {
-      display: flex;
-      gap: 10px;
+    tr:nth-child(even) {
+      background-color: #fafafa;
     }
 
-    .empty {
-      text-align: center;
-      padding: 50px;
-      color: #999;
+    tr:hover {
+      background-color: #f1f1f1;
     }
+
 
     /* Container for all templates */
     body {
@@ -184,4 +194,32 @@
 
     .filter-buttons button:hover {
       background-color: #009e8f;
+    }
+
+    /* create new button  */
+    /* Create New Resume Button */
+    .create-btn {
+      background-color: #4CAF50;
+      /* green */
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .create-btn:hover {
+      background-color: #45a049;
+      /* darker green */
+      transform: scale(1.05);
+      /* small zoom effect */
+    }
+
+    .create-btn:active {
+      background-color: #3e8e41;
+      /* pressed look */
+      transform: scale(0.98);
     }

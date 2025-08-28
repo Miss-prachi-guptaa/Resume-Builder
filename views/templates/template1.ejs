@@ -9,6 +9,18 @@
 
 <body>
   <form id="resumeForm" action="/generate-pdf/<%= templateId %>" method="POST">
+
+    <!-- Add fields for Name and Tag -->
+    <div style="margin-bottom: 15px;">
+      <label for="resumeName"><strong>Resume Name:</strong></label>
+      <input type="text" id="resumeName" name="name" placeholder="Enter resume name" required>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label for="resumeTag"><strong>Tag:</strong></label>
+      <input type="text" id="resumeTag" name="tag" placeholder="Enter tag/label (e.g., Job, Internship)">
+    </div>
+
     <button class="generate-pdf-btn" type="submit">Generate PDF</button>
 
     <div class="resume">

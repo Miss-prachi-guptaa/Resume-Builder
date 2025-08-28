@@ -1,6 +1,8 @@
 import { Router } from "express";
 import { BuildResumePage, CreateNewPage, getHomePage, } from "../controller/BuildResumePage.js";
 import * as pdf from 'html-pdf-node';
+import ResumeSave from "../schema/resume.js";
+
 
 const router = Router();
 
@@ -118,7 +120,11 @@ router.get('/edit/:templateId', (req, res) => {
 
 
 router.post('/generate-pdf/:templateId', async (req, res) => {
+  console.log("req.user:", req.user);
   const editedHTML = req.body.resumeHTML;
+  const templateId = req.params.templateId;
+  const userId = req.user.id;
+  if (!userId) return res.status(401).send("User not logged in"); // Make sure this is sent as a hidden input or from session
 
   const fullHTML = `
     <!DOCTYPE html>
@@ -137,7 +143,26 @@ router.post('/generate-pdf/:templateId', async (req, res) => {
   let file = { content: fullHTML };
 
   try {
+    // 1) Generate PDF buffer
     const pdfBuffer = await pdf.generatePdf(file, options);
+
+    // 2) Save in MongoDB
+
+    const resumeDoc = new ResumeSave({
+      name: req.body.name,
+      tag: req.body.tag,
+      userId: req.user._id,
+      data: { html: editedHTML, templateId: req.params.templateId }, // store HTML + templateId
+      pdf: pdfBuffer
+    });
+    console.log("req.user:", req.user);
+    console.log("userId being saved:", req.user?._id);
+    await resumeDoc.save();
+    res.redirect("/buildResume");
+
+
+
+    // 3) Send back both PDF + success response
     res.setHeader('Content-Type', 'application/pdf');
     res.setHeader('Content-Disposition', 'attachment; filename=resume.pdf');
     res.send(pdfBuffer);
@@ -146,6 +171,45 @@ router.post('/generate-pdf/:templateId', async (req, res) => {
     res.status(500).send('PDF generation error');
   }
 });
+
+// View
+router.get('/resume/:id/view', async (req, res) => {
+  try {
+    const resume = await ResumeSave.findById(req.params.id);
+    if (!resume) return res.status(404).send("Not found");
+
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader('Content-Disposition', 'inline; filename=resume.pdf');
+    res.send(resume.pdf);
+  } catch (err) {
+    res.status(500).send("Error viewing resume");
+  }
+});
+
+// Download
+router.get('/resume/:id/download', async (req, res) => {
+  try {
+    const resume = await ResumeSave.findById(req.params.id);
+    if (!resume) return res.status(404).send("Not found");
+
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader('Content-Disposition', 'attachment; filename=resume.pdf');
+    res.send(resume.pdf);
+  } catch (err) {
+    res.status(500).send("Error downloading resume");
+  }
+});
+
+// Delete (requires method-override middleware for DELETE in forms)
+router.delete('/resume/:id', async (req, res) => {
+  try {
+    await ResumeSave.findByIdAndDelete(req.params.id);
+    res.redirect('/dashboard'); // redirect back to list after delete
+  } catch (err) {
+    res.status(500).send("Error deleting resume");
+  }
+});
+
 
 
 export const BuildResumePageRoute = router;
